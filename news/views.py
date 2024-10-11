@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def new (request):
     return "new"
+
+def nimadir (request):
+    return "nimadir"
