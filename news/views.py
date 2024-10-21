@@ -45,3 +45,12 @@ def nimadir(request, id):
     }
     return render(request, 'nimadir.html', context)
 
+
+def news_detail(request, slug):
+    news = News.objects.get(slug=slug) # SELECT * FROM news WHERE slug = slug
+    news.views_count += 1
+    news.save()
+    context = {
+        'news': news,
+    }
+    return render(request, 'details.html', context)

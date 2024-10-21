@@ -10,11 +10,12 @@ class Category(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=500)
-    slug = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255)
     description = models.TextField()
     image = models.ImageField(upload_to='news_images/', blank=True, null=True)
     video_link = models.CharField(max_length=255, blank=True, null=True)
     published_time = models.DateTimeField(auto_now_add=True)
+    views_count = models.IntegerField(default=0)
     updated_time = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
